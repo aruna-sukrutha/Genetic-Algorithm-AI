@@ -48,18 +48,18 @@ def fitness():
         y[i].reverse()
         best.append([a-b,[x[i],y[i]]]) #store fitness value, (x,y)
     low = round(min(best)[0],3) #rollete wheel selection
-    print("low:",low) #rollette wheel selection...to get rid of maximum -ve numbers
+    #print("low:",low) #rollette wheel selection...to get rid of maximum -ve numbers
     if low<0:
-        for i in best:
+        for i in fit_value:
             #print("best",i[0])
-            i[0]+=abs(low)
+            i+=abs(low)
             #print("best",i[0])
-    print("Fitness before rollete wheel selection:\n",fit_value)
+    print("Fitness after rollete wheel selection:\n",fit_value)
     index_max=fit_value.index(max(fit_value))
     #print(best)
     best.sort()
     best.reverse()
-    print("Chromosome maximum fitness value after rollete wheel selection: ",best[0][0]," and it's x,y values are: ",best[0][1][0],best[0][1][1])
+    print("Chromosome maximum fitness value: ",best[0][0]," and it's x,y values are: ",best[0][1][0],best[0][1][1])
     #print("Sorted values:\n",best)
     return best #fitness value and (x,y)
 
